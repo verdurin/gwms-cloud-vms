@@ -108,26 +108,7 @@ class cvmfs
             require => File["JobConfig_dir"],
     }
 
-    file
-    {
-        "storage.xml":
-            path => "/etc/cvmfs/SITECONF/local/PhEDEx/storage.xml",
-            source => "file:///root/storage.xml",
-            mode => "0644", owner => "root", group => "root",
-            ensure => present,
-            require => File["phedex_dir"],
-    }
 
-    ## Use FNAL stratum one
-    file
-    {
-        "FNAL_stratum_one":
-            path => "/etc/cvmfs/domain.d/cern.ch.local",
-            source => "file:///root/cern.ch.local",
-            mode => "0644", owner => "root", group => "root",
-            ensure => present,
-            require => Package["cvmfs"],
-    }
 
     file
     {

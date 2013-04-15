@@ -96,7 +96,6 @@ files:
 
   "/root":
     - "cvmfs.pp"
-    - "storage.xml"
 
 
 post:
