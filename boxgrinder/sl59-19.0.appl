@@ -1,0 +1,102 @@
+name: gwms-19
+summary: glideinWMS SL 5.9
+version: 19
+release: 0
+
+os:
+  name: sl
+  version: 5
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+    "swap":
+      size: 4
+
+repos:
+  - name: "EPEL5-x86_64"
+    baseurl: "http://mirror.bytemark.co.uk/fedora/epel/5/x86_64/"
+  - name: "EMI2-base"
+    baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/#BASE_ARCH#/base"
+  - name: "EMI2-updates"
+    baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/#BASE_ARCH#/updates"
+  - name: "EMI2-third-party"
+    baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/$basearch/third-party"
+  - name: "CVMFS"
+    baseurl: "http://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/x86_64"
+  - name: "glideinWMS-vm"
+    baseurl: "http://heppc48.hep.ph.ic.ac.uk/glideinWMS"
+  - name: "EMI1-trustanchors"
+    baseurl: "http://repository.egi.eu/sw/production/cas/1/current/"
+
+
+packages:
+  - @core
+  - curl
+  - dhclient
+  - fuse
+  - iputils
+  - libxslt
+  - ntp
+  - openssh
+  - openssh-server
+  - openssh-clients
+  - puppet
+  - python
+  - sysklogd
+  - tar
+  - vim-enhanced
+  - util-linux
+  - wget
+  - xterm
+  - xorg-x11-xauth
+  - yum
+  - yum-priorities
+  - ca-policy-egi-core
+  - fetch-crl
+  - xrootd-client
+  - xrootd-fuse
+  - cvmfs
+  - glideinwms-vm-core
+  - glideinwms-vm-openstack
+
+files:
+  "/etc/rc.d":
+    - "rc.local"
+
+  "/etc/ssh":
+    - "sshd_config"
+
+  "/etc/sysconfig":
+    - "ephemeral_disks"
+  
+  "/etc/sysconfig/network-scripts":
+    - "ifcfg-eth0"
+
+  "/etc/init.d":
+    - "mount_ephemeral"
+
+  "/etc/cvmfs":
+    - "default.local"
+
+  "/etc/cvmfs/config.d":
+    - "cms.cern.ch.conf"
+
+  "/etc":
+    - "fuse.conf"
+    - "auto.master"
+
+  "/root":
+    - "cvmfs.pp"
+
+
+post:
+  base:
+    - "chmod +x /etc/rc.d/rc.local"
+    - "/sbin/chkconfig mount_ephemeral on"
+    - "chmod +w /etc/sudoers; sed -i 's/Defaults    requiretty/#Defaults    requiretty/g' /etc/sudoers; chmod -w /etc/sudoers"
+    - "cp -f /usr/share/zoneinfo/Europe/Zurich /etc/localtime"
+    - "yum -y install emi-wn"
+    - "sed -i '/kernel/ s|$| selinux=0|' /boot/grub/grub.conf" 
+    - "mkdir /data"

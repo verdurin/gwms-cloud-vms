@@ -1,0 +1,3 @@
+/vols   /etc/auto.vols  -fstype=nfs,timeo=600,retry=30,hard,nosuid,nodev,intr,retrans=2,tcp,vers=3 --timeout=86400
+/cvmfs /etc/auto.cvmfs
+

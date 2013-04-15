@@ -1,4 +1,2 @@
-#CVMFS_DEBUGLOG=/tmp/cvmfs.log
-CVMFS_REPOSITORIES=atlas,atlas-condb,lhcb,cms.cern.ch
-CVMFS_HTTP_PROXY="http://t2squid01.physics.ox.ac.uk:3128"
-CVMFS_QUOTA_LIMIT=20000
+CVMFS_REPOSITORIES="atlas.cern.ch,atlas-condb.cern.ch,cms.cern.ch,grid.cern.ch,lhcb.cern.ch"
+CVMFS_HTTP_PROXY="http://lt2cache00.grid.hep.ph.ic.ac.uk:3128" 
