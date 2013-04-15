@@ -1,7 +1,0 @@
-linux lt2admin.grid.hep.ph.ic.ac.uk:/srv/linux
-grid lt2netapp00a.grid.hep.ph.ic.ac.uk:/vol/lt2gridsw0
-lt2infotags lt2netapp00b.grid.hep.ph.ic.ac.uk:/vol/lt2infotag0
-sl5_exp_software lt2netapp00a.grid.hep.ph.ic.ac.uk:/vol/lt2expsw0
-accounting lt2netapp00b.grid.hep.ph.ic.ac.uk:/vol/lt2accounting
-arc lt2netapp00a.grid.hep.ph.ic.ac.uk:/vol/lt2arc0
-

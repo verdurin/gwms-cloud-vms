@@ -1,2 +1,2 @@
-CVMFS_REPOSITORIES="atlas.cern.ch,atlas-condb.cern.ch,cms.cern.ch,grid.cern.ch,lhcb.cern.ch"
-CVMFS_HTTP_PROXY="http://lt2cache00.grid.hep.ph.ic.ac.uk:3128" 
+CVMFS_REPOSITORIES="cms.cern.ch,grid.cern.ch"
+CVMFS_HTTP_PROXY="http://squid-proxy.cms:3128" 
