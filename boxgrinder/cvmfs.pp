@@ -45,31 +45,6 @@ class cvmfs
         shell => '/sbin/nologin',
     }
 
-    ## Files for talking to UW's CVMFS.
-    file
-    {
-        "wisc_pubkey":
-            path => "/etc/cvmfs/keys/cms.hep.wisc.edu.pub",
-            mode => "0644",
-            owner => "root",
-            group => "root",
-            source => "file:///root/cms.hep.wisc.edu.pub",
-            ensure => present,
-            require => Package["cvmfs"],
-    }
-
-    file
-    {
-        "wisc_conf":
-            path => "/etc/cvmfs/config.d/cms.hep.wisc.edu.conf",
-            mode => "0644",
-            owner => "root",
-            group => "root",
-            source => "file:///root/cms.hep.wisc.edu.conf",
-            ensure => present,
-            require => Package["cvmfs"],
-    }
-
     file
     {
         "default.local":
@@ -219,16 +194,6 @@ class autofs
     }
 }
 
-class osg-ca-certs
-{
-    package { osg-ca-certs: name => "osg-ca-certs", ensure => latest }
-}
-
-class osg-wn-client
-{
-    package { osg-wn-client: name => "osg-wn-client", ensure => present }
-}
-
 class fetch-crl
 {
     package { fetch-crl: name => "fetch-crl", ensure => present }
@@ -247,6 +212,4 @@ class fetch-crl
 
 class {'cvmfs': }
 class {'autofs': }
-class {'osg-wn-client': }
-class {'osg-ca-certs': }
 class {'fetch-crl': }

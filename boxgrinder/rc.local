@@ -59,9 +59,6 @@ while [ ! -f /root/.ssh/authorized_keys ]; do
     fi
 done
 
-## Ensure that the following services are off
-/sbin/service autofs stop
-/sbin/service cvmfs stop
 
 # Nimbus needs to have /root/.ssh created so that the create-keypair call will 
 # succeed - shouldn't hurt on an Amazon EC2 image
@@ -77,12 +74,30 @@ puppet apply /root/cvmfs.pp
 # Enable desired services
 /sbin/chkconfig --level 2345 sshd on
 /sbin/chkconfig fetch-crl-cron on
-/sbin/chkconfig autofs on
-/sbin/chkconfig cvmfs on
 
 # Start desired services
 /sbin/service sshd start
 /sbin/service fetch-crl-cron start
 /sbin/service autofs start
 /sbin/service cvmfs start
+
+# Ensure CVMFS running
+
+/usr/bin/logger -s "Checking CVMFS access to CMS area..."
+
+cd /cvmfs/cms.cern.ch
+sleep 5
+ls /cvmfs/cms.cern.ch/cmsset_default.sh
+
+if 
+	[ -e  "/cvmfs/cms.cern.ch/cmsset_default.sh" ]
+then
+	/usr/bin/logger -s "/cvmfs/cms.cern.ch/cmsset_default.sh exists\n"
+	/usr/bin/logger -s "CVMFS check passed"
+	exit
+else
+	/usr/bin/logger -s "CVMFS check failed"
+	/sbin/poweroff
+fi
+
 
