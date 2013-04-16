@@ -45,18 +45,6 @@ class cvmfs
         shell => '/sbin/nologin',
     }
 
-    file
-    {
-        "default.local":
-            path => "/etc/cvmfs/default.local",
-            mode => "0644",
-            owner => "root",
-            group => "root",
-            source => "file:///root/default.local",
-            require => Package["cvmfs"],
-            ensure => present,
-    }
-
     ## Files for making CMS CVMFS work.
     file
     {
@@ -100,29 +88,6 @@ class cvmfs
 
     file
     {
-        "site-local-config.xml":
-            path => "/etc/cvmfs/SITECONF/JobConfig/site-local-config.xml",
-            source => "file:///root/site-local-config.xml",
-            mode => "0644", owner => "root", group => "root",
-            ensure => present,
-            require => File["JobConfig_dir"],
-    }
-
-
-
-    file
-    {
-        "fuse.conf":
-            path => "/etc/fuse.conf",
-            mode => "0644",
-            owner => "root",
-            group => "root",
-            source => "file:///root/fuse.conf",
-            ensure => present,
-    }
-
-    file
-    {
         "cvmfs_cache":
             path => "/var/cache/cvmfs2",
             ensure => directory,
@@ -140,7 +105,7 @@ class cvmfs
             enable => true,
             hasrestart => true,
             hasstatus => true,
-            require => [Package["cvmfs"], File["default.local"], File["fuse.conf"], File["cvmfs_cache"]],
+            require => [Package["cvmfs"], File["cvmfs_cache"]],
             subscribe => File["/etc/cvmfs/default.local"],
     }
 }
