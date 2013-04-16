@@ -26,7 +26,9 @@ repos:
   - name: "CVMFS"
     baseurl: "http://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/x86_64"
   - name: "glideinWMS-vm"
-    baseurl: "http://heppc48.hep.ph.ic.ac.uk/glideinWMS"
+    baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/glideinwms"
+  - name: "xrootd-3.0.x"
+    baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/cms-hlt-xrootd"
   - name: "EMI1-trustanchors"
     baseurl: "http://repository.egi.eu/sw/production/cas/1/current/"
 
@@ -55,8 +57,8 @@ packages:
   - yum-priorities
   - ca-policy-egi-core
   - fetch-crl
-  - xrootd-client
-  - xrootd-fuse
+  - xrootd-client-3.0.5
+  - xrootd-fuse-3.0.5
   - cvmfs
   - glideinwms-vm-core
   - glideinwms-vm-openstack
