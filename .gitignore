@@ -1,2 +1,4 @@
 srpms/
 rpmbuild/
+build/
+log/
