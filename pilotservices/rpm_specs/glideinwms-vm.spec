@@ -8,8 +8,8 @@
 %endif
 
 Name:               glideinwms-vm
-Version:            0.2
-Release:            1%{?dist}
+Version:            0.0.2
+Release:            2%{?dist}
 
 Summary:            The glideinWMS service that contextualizes a VM
 Group:              System Environment/Daemons
@@ -84,6 +84,16 @@ glideinWMS pilot launcher service
 Configures the glideinmws-vm-core package to use the ec2 style of user data 
 retrieval. However, VM shutdown is DISABLED.
 
+%package openstack
+Summary:            The glideinWMS service that contextualizes a VM
+Group:              System Environment/Daemons
+
+%description openstack
+glideinWMS pilot launcher service
+
+Configures the glideinmws-vm-core package to use the OpenStack style of user data
+retrieval.
+
 
 %prep
 %setup -q -n glideinwms_pilot
@@ -96,10 +106,10 @@ retrieval. However, VM shutdown is DISABLED.
 ###############################################################################
 %pre core
 
-# Make glidein_pilot group - We do this because we have encoutered at least one
+# Make glidein_pilot group - We do this because we have encountered at least one
 # OS repo where useradd was configured such that it didn't automatically create
 # a group for the user
-getent group glidein_pilot >/dev/null || /usr/sbin/groupadd glidein_pilot
+getent group glidein_pilot >/dev/null || /usr/sbin/groupadd glidein_pilot -d /home/glidein_pilot -s /bin/bash glidein_pilot
 
 # get corresponding gid for the glidein_pilot group name
 gid=$(getent group glidein_pilot | cut -d: -f3)
@@ -145,6 +155,7 @@ install -d  $RPM_BUILD_ROOT%{_sysconfdir}/glideinwms
 install -m 0755 glidein-pilot-nimbus.ini $RPM_BUILD_ROOT%{_sysconfdir}/glideinwms/glidein-pilot-nimbus.ini
 install -m 0755 glidein-pilot-ec2.ini $RPM_BUILD_ROOT%{_sysconfdir}/glideinwms/glidein-pilot-ec2.ini
 install -m 0755 glidein-pilot-test.ini $RPM_BUILD_ROOT%{_sysconfdir}/glideinwms/glidein-pilot-test.ini
+install -m 0755 glidein-pilot-openstack.ini $RPM_BUILD_ROOT%{_sysconfdir}/glideinwms/glidein-pilot-openstack.ini
 
 # install the PRE and POST script dirs
 install -d  $RPM_BUILD_ROOT%{_libexecdir}/glideinwms_pilot/PRE
@@ -183,6 +194,11 @@ ln -s %{_sysconfdir}/glideinwms/glidein-pilot-nimbus.ini %{_sysconfdir}/glideinw
 
 # install the ini
 ln -s %{_sysconfdir}/glideinwms/glidein-pilot-test.ini %{_sysconfdir}/glideinwms/glidein-pilot.ini
+
+%post openstack
+
+# create a symbolic link to the file using a common name
+ln -s %{_sysconfdir}/glideinwms/glidein-pilot-openstack.ini %{_sysconfdir}/glideinwms/glidein-pilot.ini
 
 
 ###############################################################################
@@ -228,6 +244,15 @@ if [ "$1" = "0" ] ; then
     rm -rf %{_sysconfdir}/glideinwms/glidein-pilot-test.ini
 fi
 
+%preun openstack
+# $1 = 0 - Action is uninstall
+# $1 = 1 - Action is upgrade
+
+if [ "$1" = "0" ] ; then
+    unlink %{_sysconfdir}/glideinwms/glidein-pilot.ini
+    rm -rf %{_sysconfdir}/glideinwms/glidein-pilot-openstack.ini
+fi
+
 
 ###############################################################################
 ## files section(s)
@@ -255,7 +280,15 @@ fi
 %defattr(-,root,root,-)
 %attr(755,root,root) %config(noreplace) %{_sysconfdir}/glideinwms/glidein-pilot-test.ini
 
+%files openstack
+%defattr(-,root,root,-)
+%attr(755,root,root) %config(noreplace) %{_sysconfdir}/glideinwms/glidein-pilot-openstack.ini
+
+
 %changelog
+* Mon Apr 15 2013 Adam Huffman <a.huffman@imperial.ac.uk> - 0.0.2-2
+- Add OpenStack subpackage
+
 * Mon Sep 04 2012 Anthony Tiradani  0.0.2
 - Added 
 

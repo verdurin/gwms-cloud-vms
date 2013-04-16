@@ -3,3 +3,6 @@ pilot-launcher
 glideinwms-pilot
 glidein-pilot-ec2.ini
 glidein-pilot-nimbus.ini
+glidein-pilot-openstack.ini
+glidein-pilot-test.ini
+pre-scripts/mount_ephemeral
