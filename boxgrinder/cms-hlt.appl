@@ -62,7 +62,6 @@ packages:
   - cvmfs
   - glideinwms-vm-core
   - glideinwms-vm-openstack
-  - emi-wn
 
 files:
   "/etc/rc.d":
@@ -100,5 +99,6 @@ post:
     - "/sbin/chkconfig mount_ephemeral on"
     - "chmod +w /etc/sudoers; sed -i 's/Defaults    requiretty/#Defaults    requiretty/g' /etc/sudoers; chmod -w /etc/sudoers"
     - "cp -f /usr/share/zoneinfo/Europe/Zurich /etc/localtime"
+    - "yum install -y emi-wn"
     - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0|' /boot/grub/grub.conf" 
     - "mkdir /data"
