@@ -76,6 +76,7 @@ puppet apply /root/cvmfs.pp
 /sbin/chkconfig fetch-crl-cron on
 
 # Disable automatic yum updates
+/sbin/service yum stop
 /sbin/chkconfig yum off
 
 # Start desired services
