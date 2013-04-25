@@ -1,6 +1,6 @@
-name: cms-hlt
+name: cms-hlt-23
 summary: glideinWMS SL 5.9
-version: 22
+version: 23
 release: 0
 
 os:
