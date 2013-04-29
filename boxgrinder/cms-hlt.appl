@@ -1,6 +1,6 @@
-name: cms-hlt-23
+name: cms-hlt-24
 summary: glideinWMS SL 5.9
-version: 23
+version: 24
 release: 0
 
 os:
@@ -27,8 +27,8 @@ repos:
     baseurl: "http://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/x86_64"
   - name: "glideinWMS-vm"
     baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/glideinwms"
-  - name: "xrootd-3.0.x"
-    baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/cms-hlt-xrootd"
+  - name: "xrootd-3.3.2"
+    baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/cms-hlt-xrootd-3.3.2"
   - name: "EMI1-trustanchors"
     baseurl: "http://repository.egi.eu/sw/production/cas/1/current/"
 
@@ -57,8 +57,8 @@ packages:
   - yum-priorities
   - ca-policy-egi-core
   - fetch-crl
-  - xrootd-client-3.0.5
-  - xrootd-fuse-3.0.5
+  - xrootd-client
+  - xrootd-fuse
   - cvmfs
   - glideinwms-vm-core
   - glideinwms-vm-openstack
@@ -102,3 +102,5 @@ post:
     - "cp -f /usr/share/zoneinfo/Europe/Zurich /etc/localtime"
     - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0|' /boot/grub/grub.conf" 
     - "mkdir /data"
+    - "echo 'priority = 1' > /etc/yum.repos.d/xrootd-3.3.2.repo"
+    - "/sbin/chkconfig yum off"
