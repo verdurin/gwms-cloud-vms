@@ -1,7 +1,7 @@
-name: kashif-1.0
+name: kashif-1.1
 summary: glideinWMS SL 5.9 for Kashif Mohammad - Oxford
 version: 1
-release: 0
+release: 1
 
 os:
   name: sl
@@ -63,7 +63,6 @@ packages:
   - glideinwms-vm-core
   - glideinwms-vm-openstack
   - emi-wn
-  - emi-glexec_wn
  
 
 files:
@@ -91,7 +90,6 @@ files:
     - "fuse.conf"
     - "auto.master"
     - "auto.vols"
-    - "glexec.conf"
 
 
   "/root":
@@ -106,3 +104,4 @@ post:
     - "cp -f /usr/share/zoneinfo/Europe/London /etc/localtime"
     - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0,115200n8|' /boot/grub/grub.conf" 
     - "mkdir /data"
+    - "/sbin/chkconfig glideinwms-pilot off"
