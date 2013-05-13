@@ -89,7 +89,6 @@ files:
   "/etc":
     - "fuse.conf"
     - "auto.master"
-    - "auto.vols"
 
 
   "/root":
