@@ -108,5 +108,6 @@ post:
     - "mkdir -p /vols/grid"
     - "tar -xvf /root/vo.d_master.tar -C /vols/grid" 
     - "tar -xvf /root/certificates.2013-05-13.tar -C /vols/grid"
+    - "mkdir /home/grid"
     - "/bin/sh /root/create-glexec-users.sh"
     - "rm /root/create-glexec-users.sh"
