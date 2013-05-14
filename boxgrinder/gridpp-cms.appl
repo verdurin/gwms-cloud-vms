@@ -1,7 +1,7 @@
-name: gridpp-cms-glexec-3
-summary: glideinWMS glexec SL 5.9
-version: 3
-release: 2
+name: gridpp-cms-ganglia-1
+summary: glideinWMS with Ganlgia SL 5.9
+version: 1
+release: 0
 
 os:
   name: sl
@@ -26,7 +26,7 @@ repos:
   - name: "CVMFS"
     baseurl: "http://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/x86_64"
   - name: "glideinWMS-vm"
-    baseurl: "http://heppc48.hep.ph.ic.ac.uk/glideinWMS"
+    baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/glideinwms"
   - name: "EMI1-trustanchors"
     baseurl: "http://repository.egi.eu/sw/production/cas/1/current/"
 
