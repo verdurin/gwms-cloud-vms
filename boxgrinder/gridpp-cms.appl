@@ -82,6 +82,9 @@ files:
   "/etc/cvmfs/config.d":
     - "cms.cern.ch.conf"
 
+  "/etc/ganglia":
+    - "gmond.conf"
+
   "/etc":
     - "fuse.conf"
     - "auto.master"
@@ -97,6 +100,8 @@ post:
     - "cp -f /usr/share/zoneinfo/Europe/London /etc/localtime"
     - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0|' /boot/grub/grub.conf" 
     - "mkdir /data"
+    - "/sbin/chkconfig gmond on"
+    - "/sbin/service gmond start"
     - "/sbin/iptables -A INPUT -s 155.198.211.218/32 -p tcp -m tcp --dport 8649 -j ACCEPT"
     - "/sbin/iptables -A INPUT -d 239.2.11.72/32 -p udp -m udp --dport 8649:8669 -j ACCEPT"
 
