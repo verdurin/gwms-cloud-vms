@@ -1,7 +1,7 @@
 name: gridpp-cms-glexec-3
 summary: glideinWMS glexec SL 5.9
 version: 3
-release: 1
+release: 2
 
 os:
   name: sl
