@@ -61,7 +61,7 @@ packages:
   - glideinwms-vm-core
   - glideinwms-vm-openstack
   - emi-wn
-  - ganglia-gmond
+  - emi-glexec_wn
 
 files:
   "/etc/rc.d":
@@ -85,9 +85,16 @@ files:
   "/etc":
     - "fuse.conf"
     - "auto.master"
+    - "glexec.conf"
  
+  "/etc/lcmaps":
+    - "lcmaps-glexec.db"
+
   "/root":
     - "cvmfs.pp"
+    - "vo.d_master.tar"
+    - "certificates.2013-05-13.tar"
+    - "create-glexec-users.sh"
 
 post:
   base:
@@ -95,8 +102,12 @@ post:
     - "/sbin/chkconfig mount_ephemeral on"
     - "chmod +w /etc/sudoers; sed -i 's/Defaults    requiretty/#Defaults    requiretty/g' /etc/sudoers; chmod -w /etc/sudoers"
     - "cp -f /usr/share/zoneinfo/Europe/London /etc/localtime"
+    - "yum -y install emi-wn"
     - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0|' /boot/grub/grub.conf" 
     - "mkdir /data"
-    - "/sbin/iptables -A INPUT -s 155.198.211.218/32 -p tcp -m tcp --dport 8649 -j ACCEPT"
-    - "/sbin/iptables -A INPUT -d 239.2.11.72/32 -p udp -m udp --dport 8649:8669 -j ACCEPT"
-
+    - "mkdir -p /vols/grid"
+    - "tar -xvf /root/vo.d_master.tar -C /vols/grid" 
+    - "tar -xvf /root/certificates.2013-05-13.tar -C /vols/grid"
+    - "mkdir /home/grid"
+    - "/bin/sh /root/create-glexec-users.sh"
+    - "rm /root/create-glexec-users.sh"
