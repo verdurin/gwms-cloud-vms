@@ -1,7 +1,7 @@
-name: gridpp-cms-ganglia-1
+name: gridpp-cms-ganglia-1.1
 summary: glideinWMS with Ganglia SL 5.9
 version: 1
-release: 0
+release: 1
 
 os:
   name: sl
