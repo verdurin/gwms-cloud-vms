@@ -63,6 +63,8 @@ packages:
   - glideinwms-vm-core
   - glideinwms-vm-openstack
   - emi-wn
+  - net-snmp
+  
 
 files:
   "/etc/rc.d":
