@@ -1,7 +1,7 @@
-name: gridpp-cms-glexec-3
+name: gridpp-cms-glexec-4
 summary: glideinWMS glexec SL 5.9
-version: 3
-release: 2
+version: 4
+release: 0
 
 os:
   name: sl
@@ -92,8 +92,6 @@ files:
 
   "/root":
     - "cvmfs.pp"
-    - "vo.d_master.tar"
-    - "certificates.2013-05-13.tar"
     - "create-glexec-users.sh"
 
 post:
@@ -105,9 +103,6 @@ post:
     - "yum -y install emi-wn"
     - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0|' /boot/grub/grub.conf" 
     - "mkdir /data"
-    - "mkdir -p /vols/grid"
-    - "tar -xvf /root/vo.d_master.tar -C /vols/grid" 
-    - "tar -xvf /root/certificates.2013-05-13.tar -C /vols/grid"
     - "mkdir /home/grid"
     - "/bin/sh /root/create-glexec-users.sh"
     - "rm /root/create-glexec-users.sh"
