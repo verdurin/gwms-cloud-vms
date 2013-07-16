@@ -1,7 +1,7 @@
 name: gridpp-cms-glexec-4
 summary: glideinWMS glexec SL 5.9
 version: 4
-release: 0
+release: 2
 
 os:
   name: sl
@@ -62,6 +62,7 @@ packages:
   - glideinwms-vm-openstack
   - emi-wn
   - emi-glexec_wn
+  - cloud_init
 
 files:
   "/etc/rc.d":
@@ -72,6 +73,7 @@ files:
 
   "/etc/sysconfig":
     - "ephemeral_disks"
+    - "init"
 
   "/etc/init.d":
     - "mount_ephemeral"
@@ -101,7 +103,8 @@ post:
     - "chmod +w /etc/sudoers; sed -i 's/Defaults    requiretty/#Defaults    requiretty/g' /etc/sudoers; chmod -w /etc/sudoers"
     - "cp -f /usr/share/zoneinfo/Europe/London /etc/localtime"
     - "yum -y install emi-wn"
-    - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0|' /boot/grub/grub.conf" 
+    - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0,115200|' /boot/grub/grub.conf" 
+    - "echo 'S0:2345:respawn:/sbin/agetty ttyS0 115200 linux' >> /etc/inittab"
     - "mkdir /data"
     - "mkdir /home/grid"
     - "/bin/sh /root/create-glexec-users.sh"
