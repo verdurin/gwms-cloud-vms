@@ -62,7 +62,7 @@ packages:
   - glideinwms-vm-openstack
   - emi-wn
   - emi-glexec_wn
-  - cloud_init
+  - cloud-init
 
 files:
   "/etc/rc.d":
