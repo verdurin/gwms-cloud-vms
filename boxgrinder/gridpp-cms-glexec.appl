@@ -1,7 +1,7 @@
 name: gridpp-cms-glexec-5
 summary: glideinWMS glexec SL 5.9
 version: 5
-release: 0
+release: 1
 
 os:
   name: sl
