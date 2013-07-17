@@ -1,7 +1,7 @@
 name: gridpp-cms-glexec-5
 summary: glideinWMS glexec SL 5.9
 version: 5
-release: 1
+release: 2
 
 os:
   name: sl
@@ -66,8 +66,6 @@ files:
   "/etc/rc.d":
     - "rc.local"
 
-  "/etc/ssh":
-    - "sshd_config"
 
   "/etc/sysconfig":
     - "ephemeral_disks"
