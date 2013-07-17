@@ -1,7 +1,7 @@
-name: gridpp-cms-glexec-4
+name: gridpp-cms-glexec-5
 summary: glideinWMS glexec SL 5.9
-version: 4
-release: 2
+version: 5
+release: 0
 
 os:
   name: sl
@@ -58,8 +58,6 @@ packages:
   - xrootd-client
   - xrootd-fuse
   - cvmfs
-  - glideinwms-vm-core
-  - glideinwms-vm-openstack
   - emi-wn
   - emi-glexec_wn
   - cloud-init
@@ -91,6 +89,9 @@ files:
  
   "/etc/lcmaps":
     - "lcmaps-glexec.db"
+
+  "/etc/grid-security":
+    - "grid-mapfile"
 
   "/root":
     - "cvmfs.pp"
