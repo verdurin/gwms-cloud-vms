@@ -1,7 +1,7 @@
-name: cms-hlt-28
+name: cms-hlt-29
 summary: glideinWMS SL 5.9
-version: 28
-release: 0
+version: 29
+release: 1
 
 os:
   name: sl
@@ -27,8 +27,6 @@ repos:
     baseurl: "http://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/x86_64"
   - name: "glideinWMS-vm"
     baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/glideinwms"
-  - name: "xrootd-3.3.2"
-    baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/cms-hlt-xrootd-3.3.2"
   - name: "EMI1-trustanchors"
     baseurl: "http://repository.egi.eu/sw/production/cas/1/current/"
 
@@ -104,5 +102,4 @@ post:
     - "cp -f /usr/share/zoneinfo/Europe/Zurich /etc/localtime"
     - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0|' /boot/grub/grub.conf" 
     - "mkdir /data"
-    - "echo 'priority = 1' >> /etc/yum.repos.d/xrootd-3.3.2.repo"
     - "/sbin/chkconfig yum off"
