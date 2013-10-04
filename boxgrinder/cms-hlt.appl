@@ -16,13 +16,15 @@ hardware:
 
 repos:
   - name: "EPEL5-x86_64"
-    baseurl: "http://mirror.bytemark.co.uk/fedora/epel/5/x86_64/"
+    baseurl: "http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/5/x86_64"
   - name: "EMI2-base"
     baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/#BASE_ARCH#/base"
   - name: "EMI2-updates"
     baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/#BASE_ARCH#/updates"
   - name: "EMI2-third-party"
-    baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/$basearch/third-party"
+    baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/#BASE_ARCH#/third-party"
+  - name: "EMI2-contribs"
+    baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/#BASE_ARCH#/contribs"
   - name: "CVMFS"
     baseurl: "http://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/x86_64"
   - name: "glideinWMS-vm"
@@ -58,10 +60,11 @@ packages:
   - xrootd-client
   - xrootd-fuse
   - cvmfs
+  - emi-release
   - glideinwms-vm-core
   - glideinwms-vm-openstack
-  - emi-wn
   - net-snmp
+  - emi-wn
   
 
 files:
@@ -103,3 +106,4 @@ post:
     - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0|' /boot/grub/grub.conf" 
     - "mkdir /data"
     - "/sbin/chkconfig yum off"
+
