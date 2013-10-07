@@ -1,6 +1,6 @@
-name: cms-hlt-29
+name: cms-hlt-30
 summary: glideinWMS SL 5.9
-version: 29
+version: 30
 release: 1
 
 os:
