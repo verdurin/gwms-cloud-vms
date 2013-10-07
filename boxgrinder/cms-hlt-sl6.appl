@@ -1,4 +1,4 @@
-name: cms-hltl6-1
+name: cms-hlt-sl6-1
 summary: glideinWMS SL 6.4
 version: 1
 release: 0
@@ -46,10 +46,10 @@ packages:
   - openssh-clients
   - puppet
   - python
-  - sysklogd
+  - util-linux-ng
+  - coreutils
   - tar
   - vim-enhanced
-  - util-linux
   - wget
   - xterm
   - xorg-x11-xauth
