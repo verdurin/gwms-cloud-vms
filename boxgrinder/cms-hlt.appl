@@ -64,6 +64,7 @@ packages:
   - glideinwms-vm-core
   - glideinwms-vm-openstack
   - net-snmp
+  - emi-wn
   
 
 files:
@@ -95,6 +96,9 @@ files:
   "/root":
     - "cvmfs.pp"
 
+  "/etc/profile.d":
+    - "grid-env.sh"
+
 
 post:
   base:
@@ -105,8 +109,4 @@ post:
     - "sed -i '/kernel/ s|$| selinux=0 console=tty0 console=ttyS0|' /boot/grub/grub.conf" 
     - "mkdir /data"
     - "/sbin/chkconfig yum off"
-    - "rpm -e --nodeps --allmatches lcgdm-devel"
-    - "/usr/bin/yum -y update"
-    - "/usr/bin/yum -y install lcgdm-devel"
-    - "/usr/bin/yum -y install emi-wn"
 
