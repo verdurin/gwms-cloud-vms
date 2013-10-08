@@ -15,8 +15,8 @@ fi
 
 # Randomise the root password as the last operation
 # We ideally have some more entropy at this stage
-#echo "-----RANDOMISING ROOT PASSWORD-----"
-#dd if=/dev/urandom count=128 2>/dev/null|md5sum|passwd --stdin root >/dev/null 2>&1
+echo "-----RANDOMISING ROOT PASSWORD-----"
+dd if=/dev/urandom count=128 2>/dev/null|md5sum|passwd --stdin root >/dev/null 2>&1
 
 # Regenerate the host keys at this stage
 # Having more entropy to work with
