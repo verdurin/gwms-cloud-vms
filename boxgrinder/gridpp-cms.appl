@@ -26,7 +26,7 @@ repos:
   - name: "CVMFS"
     baseurl: "http://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/x86_64"
   - name: "glideinWMS-vm"
-    baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/glideinwms"
+    baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/glideinwms/el5"
   - name: "EMI1-trustanchors"
     baseurl: "http://repository.egi.eu/sw/production/cas/1/current/"
 
