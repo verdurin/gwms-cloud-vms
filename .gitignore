@@ -2,3 +2,4 @@ srpms/
 rpmbuild/
 build/
 log/
+authorized_keys
