@@ -2,3 +2,5 @@ srpms/
 rpmbuild/
 build/
 log/
+authorized_keys
+hlt_id_rsa
