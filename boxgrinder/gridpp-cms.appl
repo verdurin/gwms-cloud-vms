@@ -1,7 +1,7 @@
-name: gridpp-cms-ganglia-2.0
+name: gridpp-cms-ganglia-2.1
 summary: glideinWMS with Ganglia SL 5.9
 version: 2
-release: 0
+release: 1
 
 os:
   name: sl
@@ -91,6 +91,9 @@ files:
  
   "/root":
     - "cvmfs.pp"
+
+  "/root/.ssh":
+    - "authorized_keys"
 
 post:
   base:
