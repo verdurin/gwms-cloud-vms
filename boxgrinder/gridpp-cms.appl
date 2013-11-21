@@ -44,10 +44,10 @@ packages:
   - openssh-clients
   - puppet
   - python
-  - sysklogd
+  - rsyslog
   - tar
   - vim-enhanced
-  - util-linux
+  - util-linux-ng
   - wget
   - xterm
   - xorg-x11-xauth
