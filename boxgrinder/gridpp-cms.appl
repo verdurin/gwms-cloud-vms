@@ -1,11 +1,11 @@
-name: gridpp-cms-ganglia-2.1
-summary: glideinWMS with Ganglia SL 5.9
-version: 2
-release: 1
+name: gridpp-cms-ganglia-3
+summary: glideinWMS with Ganglia SL 6.4
+version: 3
+release: 0
 
 os:
   name: sl
-  version: 5
+  version: 6
 
 hardware:
   partitions:
@@ -15,18 +15,18 @@ hardware:
       size: 4
 
 repos:
-  - name: "EPEL5-x86_64"
-    baseurl: "http://mirror.bytemark.co.uk/fedora/epel/5/x86_64/"
-  - name: "EMI2-base"
-    baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/#BASE_ARCH#/base"
-  - name: "EMI2-updates"
-    baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/#BASE_ARCH#/updates"
-  - name: "EMI2-third-party"
-    baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/$basearch/third-party"
+  - name: "EPEL6-x86_64"
+    baseurl: "http://mirror.bytemark.co.uk/fedora/epel/6/x86_64/"
+  - name: "EMI3-base"
+    baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/3/sl6/#BASE_ARCH#/base"
+  - name: "EMI3-updates"
+    baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/3/sl6/#BASE_ARCH#/updates"
+  - name: "EMI3-third-party"
+    baseurl: "http://emisoft.web.cern.ch/emisoft/dist/EMI/3/sl6/$basearch/third-party"
   - name: "CVMFS"
     baseurl: "http://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/x86_64"
   - name: "glideinWMS-vm"
-    baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/glideinwms/el5"
+    baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/glideinwms/el6"
   - name: "EMI1-trustanchors"
     baseurl: "http://repository.egi.eu/sw/production/cas/1/current/"
 
@@ -59,7 +59,7 @@ packages:
   - xrootd-fuse
   - cvmfs
   - glideinwms-vm-core
-  - glideinwms-vm-openstack
+  - glideinwms-vm-ec2
   - emi-wn
   - ganglia-gmond
 
