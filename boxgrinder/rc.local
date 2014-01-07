@@ -65,8 +65,6 @@ done
 mkdir -p /root/.ssh
 chmod 700 /root/.ssh
 
-# update to latest available software
-yum update -y --exclude=xrootd*
 
 # Use serverless puppet to configure the AMI
 puppet apply /root/cvmfs.pp
