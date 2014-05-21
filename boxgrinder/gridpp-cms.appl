@@ -1,6 +1,6 @@
-name: gridpp-cms-ganglia-3
-summary: glideinWMS with Ganglia SL 6.4
-version: 3
+name: gridpp-cms-ganglia-4
+summary: glideinWMS with Ganglia SL 6.5
+version: 4
 release: 0
 
 os:
