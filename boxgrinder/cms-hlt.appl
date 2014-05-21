@@ -1,6 +1,6 @@
-name: cms-hlt-35
+name: cms-hlt-36
 summary: glideinWMS SL 6.5
-version: 35
+version: 36
 release: 0
 
 os:
