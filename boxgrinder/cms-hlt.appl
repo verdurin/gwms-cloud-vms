@@ -1,6 +1,6 @@
-name: cms-hlt-37
+name: cms-hlt-39
 summary: glideinWMS SL 6.5
-version: 37
+version: 39
 release: 0
 
 os:
@@ -31,6 +31,8 @@ repos:
     baseurl: "http://www.hep.ph.ic.ac.uk/~mhuffman/cloud/glideinwms/el6"
   - name: "EMI1-trustanchors"
     baseurl: "http://repository.egi.eu/sw/production/cas/1/current/"
+  - name: "WLCG"
+    baseurl: "http://linuxsoft.cern.ch/wlcg/sl6/#BASE_ARCH#"
 
 
 packages:
@@ -65,6 +67,7 @@ packages:
   - glideinwms-vm-openstack
   - net-snmp
   - emi-wn
+  - HEP_OSlibs_SL6
   
 
 files:

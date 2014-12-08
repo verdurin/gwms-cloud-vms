@@ -73,9 +73,12 @@ puppet apply /root/cvmfs.pp
 /sbin/chkconfig --level 2345 sshd on
 /sbin/chkconfig fetch-crl-cron on
 
+
+/usr/bin/yum -y update
+
 # Disable automatic yum updates
-/sbin/service yum stop
-/sbin/chkconfig yum off
+#/sbin/service yum stop
+#/sbin/chkconfig yum off
 
 # Start desired services
 /sbin/service sshd start
