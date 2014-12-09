@@ -1,6 +1,6 @@
-name: cms-hlt-39
-summary: glideinWMS SL 6.5
-version: 39
+name: cms-hlt-heat-1
+summary: CMS HLT OpenStack Heat SL 6.6
+version: 1
 release: 0
 
 os:
@@ -33,7 +33,8 @@ repos:
     baseurl: "http://repository.egi.eu/sw/production/cas/1/current/"
   - name: "WLCG"
     baseurl: "http://linuxsoft.cern.ch/wlcg/sl6/#BASE_ARCH#"
-
+  - name: "HTCondor"
+    baseurl: "http://research.cs.wisc.edu/htcondor/yum/stable/rhel6"
 
 packages:
   - @core
@@ -68,7 +69,8 @@ packages:
   - net-snmp
   - emi-wn
   - HEP_OSlibs_SL6
-  
+  - condor  
+
 
 files:
   "/etc/rc.d":
