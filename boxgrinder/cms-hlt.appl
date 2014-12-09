@@ -69,7 +69,7 @@ packages:
   - net-snmp
   - emi-wn
   - HEP_OSlibs_SL6
-  - condor  
+  - condor.x86_64 
 
 
 files:
