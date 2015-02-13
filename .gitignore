@@ -4,3 +4,5 @@ build/
 log/
 authorized_keys
 *.swp
+*_rsa
+*.pem
