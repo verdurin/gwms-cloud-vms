@@ -1,0 +1,7 @@
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=vocms97\.cern\.ch$" collector1
+GSI "^\/DC\=com\/DC\=DigiCert\-Grid\/O\=Open\ Science\ Grid\/OU\=Services\/CN\=cmssrv119\.fnal\.gov$" collector2
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=vocms157\.cern\.ch$" frontend
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=cmspilotjob\/vocms157\.cern\.ch$" condor
+FS glidein_pilot localuser
+GSI (.*) anonymous
+FS (.*) anonymous
