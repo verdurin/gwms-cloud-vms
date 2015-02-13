@@ -1,2 +1,2 @@
 CVMFS_REPOSITORIES="cms.cern.ch,grid.cern.ch"
-CVMFS_HTTP_PROXY="http://squid-proxy.cms:3128" 
+CVMFS_HTTP_PROXY="http://testcloud-controller.cms:3128" 

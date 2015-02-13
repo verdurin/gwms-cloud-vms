@@ -73,6 +73,9 @@ puppet apply /root/cvmfs.pp
 /sbin/chkconfig --level 2345 sshd on
 /sbin/chkconfig fetch-crl-cron on
 
+# Use local Yum proxy
+
+echo "proxy=http://testcloud-controller.cms:3128" >> /etc/yum.conf
 
 /usr/bin/yum -y update
 
